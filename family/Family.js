@@ -3,22 +3,19 @@ class Family {
     this.familyName = familyName;
     this.familyList = [];
   }
-
-  addChild(child) {
-    this.familyList.push(child);
-    console.log(`เพิ่ม ${child.name} เข้าสู่ครอบครัว ${this.familyName} เรียบร้อย!`);
+  addChild(Child) {
+    this.familyList.push(Child);
+    console.log(`เพิ่ม ${Child.name} เข้าสู่ครอบครัวนี้!!!`);
   }
-
-  showAllAndSpend() {
+  showAllChild() {
     console.log(`
---------------------------------------------
---- ยินดีต้อนรับสู่ครอบครัว ${this.familyName} ---
---------------------------------------------`);
-
-    this.familyList.forEach((child) => {
-      child.checkBlood();
-      child.requestMoney();
-      console.log("--------------------------------------------");
+-----------------------------
+--- ${this.familyName} ครอบครัว ---
+-----------------------------`);
+    this.familyList.forEach((personChild) => {
+      personChild.checkBlood();
+      personChild.getStatus();
+      console.log("-----------------------------");
     });
   }
 }

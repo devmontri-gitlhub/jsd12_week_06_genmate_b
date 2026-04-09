@@ -1,24 +1,15 @@
 const Mother = require("./Mother.js");
 
-class Child {
-  constructor(name, bloodGroup, amountToRequest, momInstance) {
-    this.name = name;
-    this.bloodGroup = bloodGroup;
-    this.give = amountToRequest;
-    this.mom = momInstance;
+class Child extends Mother {
+  constructor(name, bloodGroup, give) {
+    super(name, bloodGroup, give);
+    this.childList = [];
   }
-
-
-  requestMoney() {
-    console.log(`>> ${this.name} กำลังขอเบิกเงิน ${this.give.toLocaleString()} บาท...`);
-    this.mom.processWithdraw(this.give);
-  }
-
   checkBlood() {
-    if (this.bloodGroup === this.mom._momBlood) {
-      console.log(`   [:heavy_check_mark:] ฉันชื่อ ${this.name} ลูกรักของแม่ (กรุ๊ปเลือดตรงกัน)`);
+    if (this.bloodGroup === this._momBlood) {
+      console.log(`ฉันชื่อ ${this.name} เป็นลูกรักของแม่`);
     } else {
-      console.log(`   [!] ฉันชื่อ ${this.name} ลูกใครหว่า !!! (กรุ๊ปเลือดไม่ตรง)`);
+      console.log(`ฉันชื่อ ${this.name} เป็นลูกใครหว่า?`);
     }
   }
 }
